@@ -8,51 +8,69 @@
 <style>
 
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background: linear-gradient(135deg,#ffb6c1,#ffc0cb,#ffe4e1);
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ffb6c1,#ffc0cb,#ffe4e1);
 }
 
 h1{
-    margin-top:40px;
-    font-size:50px;
-    color:#b30059;
+margin-top:40px;
+font-size:50px;
+color:#b30059;
 }
 
 p{
-    font-size:22px;
-    color:#800040;
-    margin-bottom:40px;
+font-size:22px;
+color:#800040;
 }
 
 .gallery{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-    padding:20px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+padding:30px;
 }
 
-.photo{
-    width:260px;
-    height:260px;
-    background:white;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    overflow:hidden;
+.gallery img{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+transition:0.3s;
 }
 
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* Foto e madhe */
+
+#lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+#lightbox img{
+max-width:80%;
+max-height:80%;
+border-radius:15px;
 }
 
 .footer{
-    margin:50px;
-    font-size:20px;
-    color:#660033;
+margin:40px;
+font-size:20px;
+color:#660033;
 }
 
 </style>
@@ -61,34 +79,39 @@ p{
 <body>
 
 <h1>🌸 Gëzuar 8 Marsin 🌸</h1>
-
-<p>Me shumë dashuri për tezen time të mrekullueshme Luja 💖</p>
+<p>Për tezen time të dashur Luja 💗</p>
 
 <div class="gallery">
 
-<div class="photo">
-<img src="Pink and White Floral 8 March Instagram Post.png">
-</div>
-
-<div class="photo">
-<img src="Geen Floral Minimalist 8 March Happy Womens Day Instagram Post.png">
-</div>
-
-<div class="photo">
-<img src="foto3.jpg">
-</div>
-
-<div class="photo">
-<img src="foto4.jpg">
-</div>
+<img src="foto1.jpg" onclick="openImg(this.src)">
+<img src="foto2.jpg" onclick="openImg(this.src)">
+<img src="foto3.jpg" onclick="openImg(this.src)">
+<img src="foto4.jpg" onclick="openImg(this.src)">
 
 </div>
 
 <div class="footer">
-Faleminderit që je gjithmonë kaq e dashur dhe e mirë.  
-Të dua shumë! 💗
+Të dua shumë Luja 💕
 </div>
+
+<div id="lightbox" onclick="closeImg()">
+<img id="bigImg">
+</div>
+
+<script>
+
+function openImg(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("bigImg").src=src;
+}
+
+function closeImg(){
+document.getElementById("lightbox").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
 ```
+
